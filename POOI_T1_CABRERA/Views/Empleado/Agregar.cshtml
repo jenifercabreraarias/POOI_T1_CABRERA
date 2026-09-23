@@ -1,0 +1,41 @@
+﻿@model POOI_T1_CABRERA.Models.Empleado
+
+@{
+    ViewBag.Title = "Agregar Empleado";
+}
+
+<h2>Agregar Empleado a la Planilla</h2>
+
+@if (ViewBag.Mensaje != null)
+{
+    <p><strong>@ViewBag.Mensaje</strong></p>
+}
+
+@using (Html.BeginForm("Agregar", "Empleado", FormMethod.Post))
+{
+    <p>
+        @Html.LabelFor(m => m.IdEmpleado)
+        @Html.TextBoxFor(m => m.IdEmpleado)
+    </p>
+    <p>
+        @Html.LabelFor(m => m.NomapeEmpleado)
+        @Html.TextBoxFor(m => m.NomapeEmpleado)
+    </p>
+    <p>
+        @Html.LabelFor(m => m.CategoriaEmpleado)
+        @Html.DropDownList("CategoriaEmpleado", (SelectList)ViewBag.Categorias, "-- Seleccione --")
+    </p>
+    <p>
+        @Html.LabelFor(m => m.NHijos)
+        @Html.TextBoxFor(m => m.NHijos)
+    </p>
+    <p>
+        @Html.LabelFor(m => m.TipoContrato)
+        @Html.DropDownList("TipoContrato", (SelectList)ViewBag.TiposContrato, "-- Seleccione --")
+    </p>
+
+    <input type="submit" value="NUEVO" />
+}
+
+<p>@Html.ActionLink("Volver a la lista", "Index")</p>
+

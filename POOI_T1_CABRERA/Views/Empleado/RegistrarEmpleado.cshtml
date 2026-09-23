@@ -1,0 +1,53 @@
+﻿@model POOI_T1_CABRERA.Models.Empleado
+
+@{
+    ViewBag.Title = "Registrar Empleado";
+}
+
+<h2>Registrar Empleado</h2>
+
+@using (Html.BeginForm("RegistrarEmpleado", "Empleado", FormMethod.Post))
+{
+    <p>
+        @Html.LabelFor(m => m.IdEmpleado)
+        @Html.TextBoxFor(m => m.IdEmpleado)
+    </p>
+    <p>
+        @Html.LabelFor(m => m.NomapeEmpleado)
+        @Html.TextBoxFor(m => m.NomapeEmpleado)
+    </p>
+    <p>
+        @Html.LabelFor(m => m.CategoriaEmpleado)
+        @Html.DropDownList("CategoriaEmpleado", (SelectList)ViewBag.Categorias, "-- Seleccione --")
+    </p>
+    <p>
+        @Html.LabelFor(m => m.NHijos)
+        @Html.TextBoxFor(m => m.NHijos)
+    </p>
+    <p>
+        @Html.LabelFor(m => m.TipoContrato)
+        @Html.DropDownList("TipoContrato", (SelectList)ViewBag.TiposContrato, "-- Seleccione --")
+    </p>
+
+    <input type="submit" value="REGISTRAR" />
+}
+
+<hr />
+<h3>Resultado</h3>
+<p>
+    Sueldo Basico:
+    <input type="text" value="@Model.SueldoBasico()" readonly="readonly" />
+</p>
+<p>
+    Escolaridad:
+    <input type="text" value="@Model.Escolaridad()" readonly="readonly" />
+</p>
+<p>
+    Bonificacion:
+    <input type="text" value="@Model.Bonificacion()" readonly="readonly" />
+</p>
+<p>
+    Monto a Pagar:
+    <input type="text" value="@Model.MontoAPagar()" readonly="readonly" />
+</p>
+

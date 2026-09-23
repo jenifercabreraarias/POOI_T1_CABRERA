@@ -1,0 +1,38 @@
+﻿
+@model List<POOI_T1_CABRERA.Models.Empleado>
+
+@{
+    ViewBag.Title = "Planilla de Empleados";
+}
+
+<h2>Planilla de Empleados</h2>
+
+<table border="1" cellpadding="5">
+    <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Categoria</th>
+        <th>N Hijos</th>
+        <th>Tipo Contrato</th>
+        <th>Sueldo Basico</th>
+        <th>Bonificacion</th>
+        <th>Escolaridad</th>
+        <th>Monto a Pagar</th>
+    </tr>
+    @foreach (var emp in Model)
+    {
+        <tr>
+            <td>@emp.IdEmpleado</td>
+            <td>@emp.NomapeEmpleado</td>
+            <td>@emp.CategoriaEmpleado</td>
+            <td>@emp.NHijos</td>
+            <td>@emp.TipoContrato</td>
+            <td>@emp.SueldoBasico()</td>
+            <td>@emp.Bonificacion()</td>
+            <td>@emp.Escolaridad()</td>
+            <td>@emp.MontoAPagar()</td>
+        </tr>
+    }
+</table>
+
+<p>@Html.ActionLink("Agregar nuevo empleado", "Agregar")</p>
